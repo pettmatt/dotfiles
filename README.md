@@ -8,7 +8,7 @@ https://www.gnu.org/software/stow/manual/stow.html
 
 Note for self, don't point to a file with stow command. Just point to the directory.
 
-In the case of neovim the stow command works as follows:
+In the case of neovim the stow command can be used like this:
 
 ```cmd
 stow --target="$HOME/.config/nvim" --dir="$HOME/Dotfiles/nvim" --stow .
