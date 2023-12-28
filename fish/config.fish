@@ -5,6 +5,10 @@ set fish_greeting
 # Rust, taken from yangchenyun's config-file
 set -x PATH "$HOME/.cargo/bin" $PATH
 
+# Deno, manually add the directory to your $HOME/.bashrc (or similar)
+set DENO_INSTALL_PATH "/home/pickle/.deno"
+set -x PATH "$DENO_INSTALL_PATH/bin:$PATH" $PATH
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -13,7 +17,6 @@ end
 if status --is-login
 	set -gx PATH $PATH ~/linux/bin
 end
-
 
 # Start X at login
 #if status is-login
