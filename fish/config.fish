@@ -1,3 +1,10 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# Created by `pipx` on 2023-11-05 21:30:52
+set PATH $PATH /home/pickle/.local/bin
+
 # SOME GENERAL SETTINGS
 set -U fish_user_paths $fish_user_paths $PATH
 set fish_greeting
@@ -31,6 +38,13 @@ end
 #if test -z $DISPLAY; and test (tty) = "/dev/tty1"
 #    sway
 #end
+
+# pnpm
+set -gx PNPM_HOME "/home/pickle/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
 
 if not pgrep -u "$USER" ssh-agent > /dev/null
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
