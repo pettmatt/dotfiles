@@ -9,6 +9,8 @@ set -x PATH "$HOME/.cargo/bin" $PATH
 set DENO_INSTALL_PATH "/home/pickle/.deno"
 set -x PATH "$DENO_INSTALL_PATH/bin:$PATH" $PATH
 
+set -x PATH "$HOME/.nvm/nvm.sh" $PATH
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -29,3 +31,10 @@ end
 #if test -z $DISPLAY; and test (tty) = "/dev/tty1"
 #    sway
 #end
+
+if not pgrep -u "$USER" ssh-agent > /dev/null
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+end
+if not test -f "$SSH_AUTH_SOCK"
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+end
