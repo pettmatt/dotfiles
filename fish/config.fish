@@ -49,6 +49,6 @@ end
 if not pgrep -u "$USER" ssh-agent > /dev/null
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 end
-if not test -f "$SSH_AUTH_SOCK"
+if test -f "$XDG_RUNTIME_DIR/ssh-agent.env"
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 end
