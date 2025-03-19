@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 " Reminder: Place this file in the Home directory
 " Set shift width to 4 spaces.
 set shiftwidth=4
@@ -41,7 +43,7 @@ set showmatch
 set hlsearch
 
 " Set the commands to save in history default number is 20.
-set history=100
+set history=300
 
 " Enable auto completion menu after pressing TAB.
 set wildmenu
@@ -56,13 +58,42 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
+
+" Essentials
 
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'w0rp/ale'
-" Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+
+" Nice to haves
+
+Plug 'w0rp/ale'
+Plug 'mattn/emmet-vim'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
+Plug 'townk/vim-autoclose'
+" Plug 'scrooloose/syntastic'
+
+" Testing usefulness
+" Will be moved to other category or removed after testing
+
+Plug 'honza/vim-snippets'
+
+
+" Theme specific plugins
+
+" Plug 'valloric/youcompleteme'
+Plug 'altercation/vim-colors-solarized'
+
+""" Code display
+
+" Essential for other plugins
+
+Plug 'nvim-lua/plenary.nvim'
+
+" Language support
 
 call plug#end()
 
